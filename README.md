@@ -2,16 +2,24 @@
 Find, Book, Celebrate.
 
 ## Timeline
-### Checkpoint 1( deliveriables ): Project setup, Authentication & Integration.
+### Checkpoint 1( deliverables ): Project setup, Authentication & Integration.
 #### Setup:
-1. `www` ( source package for Frontend ), 
-2. `nest` for backend,
+- [x] `www` ( source package for Frontend ), 
+- [x] `nest` for backend,
    - Containerised `nest` application for auth handling (JWT), DB (MongoDB) connection 
+- [x] containers for MongoDB (`local testing`), and MongoDB Atlas (`Hosted`).
 
 #### Authentication
-1. Authentication using JWT (JSON Web Tokens),
+- [ ] mongoDB collection for storing user-credentials ( email, password (hashed)),
+- [ ] Routes: Authorisation
+   - `/client` - Browse spaces, sign-up/loing, see real-time availability, place reservations, pay via Razorpay, view/cancel bookings. 
+   - `/staff` - View daily reservations list, scan/enter booking code, mark guests, checked-in/out, flag issues 
+   - `/admin` - CRUD own spaces, upload images, configure pricing rules, view/filter reservations, mark no-shows, basic analytics.
 
 ```mermaid
 graph LR
     A["`Athentication`"] --> B["`JWT`"]
 ```
+#### Planned:
+- [ ] Razorpay integration
+- [ ] 
