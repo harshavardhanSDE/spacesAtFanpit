@@ -16,16 +16,14 @@ export function LoginForm({
         formState: { errors }
     } = useForm();
 
-    // 2. This function receives the validated form data
     const onSubmit = (data: any) => {
         console.log(data);
-        // You'd typically send this data to an API
     };
 
 
 
     return (
-        <form className={cn("flex flex-col gap-6", className)} {...props}>
+        <form className={cn("flex flex-col gap-6", className)} {...props} onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col items-start gap-2 text-center">
                 <h1 className="text-2xl font-bold">Welcome back!</h1>
                 <p className="text-muted-foreground text-sm text-start">
@@ -35,7 +33,17 @@ export function LoginForm({
             <div className="grid gap-6">
                 <div className="grid gap-3">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="m@example.com" required />
+                    <Input id="email" type="email" placeholder="m@example.com" required
+                           {
+                        ...register("email", {
+                            required: "Email is required.",
+                            pattern: {
+                                value: /^\S+@\S+$/i,
+                                message: "Please enter valid email."
+                            }
+                        })}
+                    />
+
                 </div>
                 <div className="grid gap-3">
                     <div className="flex items-center">
@@ -49,7 +57,7 @@ export function LoginForm({
                     </div>
                     <Input id="password" type="password" required />
                 </div>
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full" >
                     Login
                 </Button>
             </div>
