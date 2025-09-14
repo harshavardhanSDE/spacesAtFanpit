@@ -42,7 +42,7 @@ graph LR
 ```
 #### Planned:
 - [ ] Razorpay integration
-- [ ] Seeding DB with sample spaces for retreiving
+- [ ] Seeding DB with sample spaces for retrieving
 - [ ] Admin UI for CRUD of Spaces, time.
 - [ ] Booking page for client.
 - [ ] service page for staff.
