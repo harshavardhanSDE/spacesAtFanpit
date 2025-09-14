@@ -1,5 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString, MinLength, IsArray, IsEnum } from 'class-validator';
-import { Role } from '@/src/users/entities/user.entity'
+import { IsEmail, IsNotEmpty, IsString, MinLength} from 'class-validator';
 export class SignupDto {
     @IsNotEmpty()
     @IsString()
@@ -14,7 +13,4 @@ export class SignupDto {
     @MinLength(8)
     password: string;
 
-    @IsArray()
-    @IsEnum(Role, { each: true })
-    roles: string[];
 }

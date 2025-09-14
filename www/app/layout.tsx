@@ -14,7 +14,7 @@ const blinker = Blinker({
 // });
 
 export const metadata: Metadata = {
-  title: "Spaces at Fanpit",
+  title: "Spaces by Fanpit",
   description: "Find, Book, Celebrate",
 };
 

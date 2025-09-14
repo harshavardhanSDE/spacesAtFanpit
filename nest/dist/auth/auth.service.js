@@ -53,6 +53,7 @@ const mongoose_2 = require("mongoose");
 const user_entity_1 = require("../users/entities/user.entity");
 const bcrypt = __importStar(require("bcryptjs"));
 const config_1 = require("@nestjs/config");
+const user_entity_2 = require("../users/entities/user.entity");
 let AuthService = class AuthService {
     userModel;
     jwtService;
@@ -63,13 +64,13 @@ let AuthService = class AuthService {
         this.configService = configService;
     }
     async signup(signupDto) {
-        const { name, email, password, roles } = signupDto;
+        const { name, email, password } = signupDto;
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = await this.userModel.create({
             name,
             email,
             password: hashedPassword,
-            roles,
+            roles: [user_entity_2.Role.USER],
         });
         const token = this.jwtService.sign({
             id: user.id,

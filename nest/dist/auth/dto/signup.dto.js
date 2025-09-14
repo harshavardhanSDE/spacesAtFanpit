@@ -11,12 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SignupDto = void 0;
 const class_validator_1 = require("class-validator");
-const user_entity_1 = require("../../users/entities/user.entity");
 class SignupDto {
     name;
     email;
     password;
-    roles;
 }
 exports.SignupDto = SignupDto;
 __decorate([
@@ -35,9 +33,4 @@ __decorate([
     (0, class_validator_1.MinLength)(8),
     __metadata("design:type", String)
 ], SignupDto.prototype, "password", void 0);
-__decorate([
-    (0, class_validator_1.IsArray)(),
-    (0, class_validator_1.IsEnum)(user_entity_1.Role, { each: true }),
-    __metadata("design:type", Array)
-], SignupDto.prototype, "roles", void 0);
 //# sourceMappingURL=signup.dto.js.map

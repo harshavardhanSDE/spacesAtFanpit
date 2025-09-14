@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable, UnauthorizedException, Controller, Post, Body, UseGuards } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
 import {Model} from 'mongoose';
@@ -7,6 +7,9 @@ import { SignupDto} from "@/src/auth/dto/signup.dto";
 import * as bcrypt from 'bcryptjs';
 import { LoginDto } from './dto/login.dto';
 import { ConfigService } from '@nestjs/config';
+import {Role} from '@/src/users/entities/user.entity';
+
+
 
 @Injectable()
 export class AuthService {
@@ -15,13 +18,13 @@ export class AuthService {
   }
 
   async signup(signupDto: SignupDto) {
-      const { name, email, password, roles } = signupDto;
+      const { name, email, password } = signupDto;
       const hashedPassword = await bcrypt.hash(password, 10);
       const user = await this.userModel.create({
           name,
           email,
           password: hashedPassword,
-          roles,
+          roles : [Role.USER],
       });
 
 

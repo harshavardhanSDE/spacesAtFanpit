@@ -68,11 +68,15 @@ export function LoginForm({
                             </div>
                         </div>
                     </form>
-                    <div className="bg-muted relative md:block hidden">
+                    <div className="bg-muted relative md:block sm:hidden mx-10 flex flex-col gap-6 items-center justify-center">
                         <Image src="/logo-transparent.png" alt={"Fanpit logo with tagline"} width={200} height={100}/>
-                        <span className={cn("font-bold", "text-6xl")}>
+                        <div className={cn("font-bold", "text-8xl")}>
                             [SPACES]
-                        </span>
+                        </div>
+                        <div className={cn("font-bold", "text-2xl")}>
+                            Find, Book, Celebrate.
+                        </div>
+
                     </div>
                 </CardContent>
             </Card>
